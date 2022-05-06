@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:recruitment_issues/home/home.dart';
+import 'package:recruitment_issues/service/navigation_service.dart';
 
 void main() {
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -11,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Recruitment Issues',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +28,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Home(),
     );
   }
 }
@@ -112,4 +117,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+/// locator
+GetIt locator = GetIt.instance;
+
+void setupLocator() {
+  locator.registerLazySingleton(() => NavigationService());
 }
