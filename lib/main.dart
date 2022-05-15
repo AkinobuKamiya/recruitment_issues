@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:recruitment_issues/home/home.dart';
+import 'package:recruitment_issues/home/widgets/image_carousel_list/image_carousel_list.dart';
 import 'package:recruitment_issues/service/navigation_service.dart';
 
 void main() {
@@ -29,7 +30,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const Home(),
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      routes: {
+        '/': (context) => const Home(),
+        '/ImageCarouselList': (context) => const ImageCarouselList()
+      },
+      initialRoute: '/',
+      // home: const Home(),
     );
   }
 }
@@ -84,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
+          // Column is also a layout widget. It takes a image_carousel_list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
           //
