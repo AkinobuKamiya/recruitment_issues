@@ -10,7 +10,7 @@ import 'package:stacked/stacked.dart';
 const double _kAppBarMinHeight = 90.0;
 const double _kAppBarMidHeight = 256.0;
 
-const Duration _kScrollDuration = const Duration(milliseconds: 400);
+const Duration _kScrollDuration = Duration(milliseconds: 400);
 const Curve _kScrollCurve = Curves.fastOutSlowIn;
 
 class Home extends StatefulWidget {
@@ -192,7 +192,7 @@ class _HomeState extends State<Home> {
 
   void _maybeScroll(double midScrollOffset, int pageIndex, double xOffset) {
     if (_scrollController.offset < midScrollOffset) {
-      // Scroll the overall list to the point where only one section card shows.
+      // Scroll the overall image_carousel_list to the point where only one section card shows.
       // At the same time scroll the PageViews to the page at pageIndex.
       _headingPageController.animateToPage(pageIndex,
           curve: _kScrollCurve, duration: _kScrollDuration);

@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruitment_issues/home/contents_view.dart';
 import 'package:recruitment_issues/home/parts/constants.dart';
+import 'package:recruitment_issues/home/widgets/image_carousel_list/image_carousel_list.dart';
 
 const String _kGalleryAssetsPackage = 'shrine_images';
 
@@ -47,13 +48,13 @@ final List<Section> allSections = <Section>[
     backgroundAssetPackage: _kGalleryAssetsPackage,
     details: ContentsView(contentsType: type.tableOfContents),
   ),
-  Section(
+  const Section(
     title: '画像を用いたカルーセル',
     leftColor: logistics_color,
     rightColor: logistics_color,
     backgroundAsset: '1-0.jpg',
     backgroundAssetPackage: _kGalleryAssetsPackage,
-    details: Container(),
+    details: ImageCarouselList(),
   ),
   Section(
     title: 'ボタンによるアニメーション切り替え',
