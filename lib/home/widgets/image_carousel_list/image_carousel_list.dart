@@ -71,7 +71,6 @@ class _ImageCarouselListState extends State<ImageCarouselList> {
         child: Image.asset(
           list[index].imageAsset,
           package: list[index].imagePackage.package,
-          color: const Color.fromRGBO(255, 255, 255, 0.075),
           colorBlendMode: BlendMode.modulate,
           fit: BoxFit.cover,
         ),

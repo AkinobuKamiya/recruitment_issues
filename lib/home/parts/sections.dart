@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:recruitment_issues/home/contents_view.dart';
 import 'package:recruitment_issues/home/parts/constants.dart';
 import 'package:recruitment_issues/home/widgets/image_carousel_list/image_carousel_list.dart';
+import 'package:recruitment_issues/home/widgets/switch_animation/switch_animation.dart';
 
 const String _kGalleryAssetsPackage = 'shrine_images';
 
@@ -56,13 +57,13 @@ final List<Section> allSections = <Section>[
     backgroundAssetPackage: _kGalleryAssetsPackage,
     details: ImageCarouselList(),
   ),
-  Section(
+  const Section(
     title: 'ボタンによるアニメーション切り替え',
     leftColor: stopwatch_color,
     rightColor: stopwatch_color,
     backgroundAsset: '0-0.jpg',
     backgroundAssetPackage: _kGalleryAssetsPackage,
-    details: Container(),
+    details: SwitchAnimation(),
   ),
   const Section(
     title: 'その他開発事例\n(箇条書き羅列)',

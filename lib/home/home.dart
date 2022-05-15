@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recruitment_issues/home/home_view_model.dart';
 import 'package:recruitment_issues/home/parts/constants.dart';
 import 'package:recruitment_issues/home/parts/section_widgets.dart';
 import 'package:recruitment_issues/home/parts/sections.dart';
 import 'package:recruitment_issues/home/parts/selection_layout.dart';
 import 'package:recruitment_issues/home/parts/slivers.dart';
-import 'package:stacked/stacked.dart';
 
 const double _kAppBarMinHeight = 90.0;
 const double _kAppBarMidHeight = 256.0;
@@ -29,17 +27,12 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<HomeViewModel>.reactive(
-        viewModelBuilder: () => HomeViewModel(),
-        onModelReady: (viewModel) => viewModel.init(),
-        builder: (context, viewModel, _) {
-          return Scaffold(
-            body: _body(viewModel),
-          );
-        });
+    return Scaffold(
+      body: _body(),
+    );
   }
 
-  Widget _body(HomeViewModel viewModel) {
+  Widget _body() {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     final double statusBarHeight = mediaQueryData.padding.top;
     final double screenHeight = mediaQueryData.size.height;
@@ -145,7 +138,8 @@ class _HomeState extends State<Home> {
       _selectedIndex.value = leader.page!;
       if (follower.page != leader.page) {
         // follower.position.jumpTo(leader.position.pixels);
-        follower.position.jumpToWithoutSettling( leader.position.pixels); // ignore: deprecated_member_use
+        follower.position.jumpToWithoutSettling(
+            leader.position.pixels); // ignore: deprecated_member_use
       }
       setState(() {
         // managementController();
@@ -208,12 +202,4 @@ class _HomeState extends State<Home> {
           curve: _kScrollCurve, duration: _kScrollDuration);
     }
   }
-
-// void managementController(HomeViewModel viewModel) {
-//   int selectedIndexInt = viewModel.selectedIndex.value.round();
-//   isWithManagement = selectedIndexInt == managedIndexLogistics ||
-//       selectedIndexInt == managedIndexStaffing ||
-//       selectedIndexInt == managedIndexProgress ||
-//       selectedIndexInt == managedIndexWave;
-// }
 }
