@@ -64,6 +64,11 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: NotoSansJP
+      fonts:
+        - asset: fonts/NotoSansJP-Regular.ttf
+          style: normal
   assets:
     - packages/shrine_images/0-0.jpg
     - packages/shrine_images/1-0.jpg
